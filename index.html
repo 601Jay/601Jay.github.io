@@ -84,6 +84,11 @@
         close = document.querySelector(".close");
         var control = document.querySelector(".control");
 
+        var canvas = document.createElement('canvas');
+        canvas.width=320,canvas.height = 456;
+        document.querySelector(".wrap").appendChild(canvas);
+        var ctx =  canvas.getContext('2d');
+
         window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
         function invokingCarera(){
@@ -149,17 +154,16 @@
                   };
         })();
         function screenShot(){
-            var canvas = document.createElement('canvas');
-            canvas.width=320,canvas.height = 456;
-            document.querySelector(".wrap").appendChild(canvas);
-            var ctx =  canvas.getContext('2d');
+
+
             function drawVideo(){
                 ctx.drawImage(oCapture,0,0,320,456);
-                ctx.font = "30px sans-serif";
-                ctx.fillStyle = "blue";
-                ctx.fillText("请眨眼", 50, 50);
+                // ctx.font = "30px sans-serif";
+                // ctx.fillStyle = "blue";
+                // ctx.fillText("请眨眼", 50, 50);
                 // requestAnimationFrame(drawVideo);
             }
+            drawVideo();
             // window.requestAnimationFrame(drawVideo);
         }
     </script>
