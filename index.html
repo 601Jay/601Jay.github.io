@@ -54,7 +54,6 @@
         }
 
     </style>
-    <script type="text/javascript" src="vconsole.min.js"></script>
 </head>
 <body>
     <div class="title flex flex-column">
@@ -69,9 +68,14 @@
         <div class="strainer"></div>
         <video class="capture" width="320" height="456" src=""></video>
     </div>
-	<input type="file" id="take-picture" accept="image/*" capture="camera">
+	<input id="input" type="file" id="take-picture" accept="image/*" capture="camera">
 </div>
-	
+	<script>
+	    document.getElementById("input").addEventListener("change",function () {
+	        console.log("change");
+	        
+	    });
+	</script>
     <script type="text/javascript">
         var buffer;
         var oCapture = document.querySelector(".capture"),
@@ -156,7 +160,7 @@
                 ctx.fillText("请眨眼", 50, 50);
                 requestAnimationFrame(drawVideo);
             }
-            window.requestAnimationFrame(drawVideo);
+            // window.requestAnimationFrame(drawVideo);
         }
     </script>
 </body>
