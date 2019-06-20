@@ -68,7 +68,7 @@
         <div class="strainer"></div>
         <video class="capture" width="320" height="456" src=""></video>
     </div>
-	<input id="input" type="file" id="take-picture" accept="image/*" capture="camera">
+	<!-- <input id="input" type="file" id="take-picture" accept="image/*" capture="camera"> -->
 </div>
 	<script>
 	    document.getElementById("input").addEventListener("change",function () {
@@ -158,7 +158,7 @@
                 ctx.font = "30px sans-serif";
                 ctx.fillStyle = "blue";
                 ctx.fillText("请眨眼", 50, 50);
-                requestAnimationFrame(drawVideo);
+                // requestAnimationFrame(drawVideo);
             }
             // window.requestAnimationFrame(drawVideo);
         }
