@@ -67,6 +67,7 @@
     <div class="scan reference">
         <div class="strainer"></div>
         <video class="capture" width="320" height="456" src=""></video>
+        <img src="" id="canvas_show" style="border: 1px solid #000;" />
     </div>
 	<!-- <input id="input" type="file" id="take-picture" accept="image/*" capture="camera"> -->
 </div>
@@ -158,6 +159,9 @@
 
             function drawVideo(){
                 ctx.drawImage(oCapture,0,0,320,456);
+                var _imgSrc = canvas.toDataURL("image/png",1);
+                var canvasShow = document.getElementById('canvas_show');
+                canvasShow.setAttribute('src', _imgSrc);
                 // ctx.font = "30px sans-serif";
                 // ctx.fillStyle = "blue";
                 // ctx.fillText("请眨眼", 50, 50);
