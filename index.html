@@ -65,7 +65,7 @@
         <p class="close">关闭摄像头</p>
         <p class="getCookie">显示cookie</p>
         <p class="setCookie">设置cookie</p>
-        <p>删除cookie</p>
+        <p class="deleteCookie">删除cookie</p>
     </div>
     <div class="scan reference">
         <div class="strainer" style="display: block;"></div>
@@ -83,6 +83,7 @@
         var control = document.querySelector(".control");
         var getC = document.querySelector(".getCookie");
         var setC = document.querySelector(".setCookie");
+        var deleteC = document.querySelector(".deleteCookie");
 		getC.onclick = function(){
 			console.log(document.cookie)
 			var name = CookieUtil.get("name");
@@ -90,6 +91,9 @@
 		};
 		setC.onclick = function() {
 			 CookieUtil.set("name", "zhang");
+		}
+		deleteC.onclick = function(){
+			document.cookie = null;
 		}
 
 		var CookieUtil = {
