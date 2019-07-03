@@ -246,6 +246,7 @@
             function drawVideo(){
                 ctx.drawImage(oCapture,0,0,320,456);
                 var _imgSrc = canvas.toDataURL("image/png",1);
+                alert(_imgSrc);
                 var canvasShow = document.getElementById('canvas_show');
                 canvasShow.setAttribute('src', _imgSrc);
                 // ctx.font = "30px sans-serif";
