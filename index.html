@@ -84,6 +84,7 @@
         var getC = document.querySelector(".getCookie");
         var setC = document.querySelector(".setCookie");
 		getC.onclick = function(){
+			console.log(document.cookie)
 			var name = CookieUtil.get("name");
     		console.log(name);    // zhang
 		};
