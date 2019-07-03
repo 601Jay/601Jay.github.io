@@ -177,10 +177,10 @@
 
         window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-        function invokingCarera(){
+        function invokingCarera(boolean){
             if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){
                 navigator.mediaDevices.getUserMedia({
-                    'audio':true,
+                    'audio':boolean,
                     'video':{ facingMode: { exact: "environment" } }//调用前置摄像头，后置摄像头使用video: { facingMode: { exact: "environment" } }
                     //'video':{ 'facingMode': "user" }
                 })
@@ -216,10 +216,11 @@
             var className = e.target.className;
             switch(className){
                 case 'open':
-                invokingCarera();
+                invokingCarera(true);
                 break;
                 case 'close':
-                closeCamera();
+                invokingCarera(false);
+                // closeCamera();
                 break;
                 case 'recognition':
                 screenShot();
