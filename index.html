@@ -63,6 +63,9 @@
         <p class="open">开启摄像头</p>
         <p class="recognition">显示到Canvas</p>
         <p class="close">关闭摄像头</p>
+        <p class="getCookie">显示cookie</p>
+        <p class="setCookie">设置cookie</p>
+        <p>删除cookie</p>
     </div>
     <div class="scan reference">
         <div class="strainer" style="display: block;"></div>
@@ -84,6 +87,33 @@
         recognition = document.querySelector(".recognition"),
         close = document.querySelector(".close");
         var control = document.querySelector(".control");
+        var getC = document.querySelector(".getCookie");
+        var setC = document.querySelector(".setCookie");
+		getC.onclick = getAllCookie;
+		setC.onclick = setCookie('age', 23);
+
+		function setCookie(cname,cvalue)
+			{
+				console.log(2);
+			  var d = new Date();
+			  d.setTime(d.getTime());
+			  var expires = "expires="+d.toGMTString();
+			  document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+
+        function getAllCookie() {
+        	var aCookie = document.cookie.split(";");  
+        	console.log(aCookie);
+			 var re = '';  
+			  for (var i = 0; i < aCookie.length; i++) {  
+			      var aCrumb = aCookie[i].split("=");  
+			      if(aCrumb[0].toString().trim()=='order_list'){  
+			          continue;  
+			      }  
+			      re += (aCrumb[0] + " = " + aCrumb[1] + '\n\n');  
+			  }  
+			  alert('cookie info:\n'+re);  
+        }
 
         var canvas = document.createElement('canvas');
         canvas.width=320,canvas.height = 456;
